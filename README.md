@@ -15,4 +15,6 @@
 
 | วันที่ | ประเภท | เอกสาร |
 |---|---|---|
-| 15 มี.ค. 2569 | เอกสาร | [Database Schema](oic_iiqe_database_schema.md) |
+| 15 มี.ค. 2569 | เอกสาร | [Database Schema](iiqe_database/oic_iiqe_database_schema.md) |
+| 15 มี.ค. 2569 | เอกสาร | [Relationship Candidates](iiqe_database/oic_iiqe_relationship_candidates.csv) |
+| 15 มี.ค. 2569 | เอกสาร | [AI Schema](iiqe_database/oic_iiqe_database_ai_schema.csv) |
