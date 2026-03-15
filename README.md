@@ -10,3 +10,9 @@
 | 8 มี.ค. 2569 | คู่มือแก้ไข | [05 คู่มือแก้ไข Phase 2 Architecture improvements](20260308/05_phase2_architecture_improvements.md) |
 | 8 มี.ค. 2569 | คู่มือแก้ไข | [06 คู่มือแก้ไข Phase 3 Code Refactoring](20260308/06_phase3_code_refactoring.md) |
 | 8 มี.ค. 2569 | คู่มือแก้ไข | [07 คู่มือแก้ไข Phase 4 Quality testing](20260308/07_phase4_quality_testing.md) |
+
+## Schema and Structure
+
+| วันที่ | ประเภท | เอกสาร |
+|---|---|---|
+| 15 มี.ค. 2569 | เอกสาร | [Database Schema](oic_iiqe_database_schema.md) |
