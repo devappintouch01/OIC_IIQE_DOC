@@ -18,4 +18,6 @@
 | 15 มี.ค. 2569 | เอกสาร | [Database Schema](iiqe_database/oic_iiqe_database_schema.md) |
 | 15 มี.ค. 2569 | เอกสาร | [Relationship Candidates csv](iiqe_database/oic_iiqe_relationship_candidates.csv) |
 | 15 มี.ค. 2569 | เอกสาร | [AI Schema csv](iiqe_database/oic_iiqe_database_ai_schema.csv) |
-| 15 มี.ค. 2569 | เอกสาร | [Prompt](iiqe_database/prompt.md) |
+| 15 มี.ค. 2569 | เอกสาร Prompt | [Prompt 1](iiqe_database/prompt1.md) |
+| 15 มี.ค. 2569 | เอกสาร Prompt | [Prompt 2](iiqe_database/prompt2.md) |
+| 15 มี.ค. 2569 | เอกสาร Prompt | [Prompt 3](iiqe_database/prompt3.md) |
