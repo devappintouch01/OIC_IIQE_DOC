@@ -170,6 +170,8 @@ Database: Oracle
 Schema files:
 - Brain_IIQE\iiqe_database\oic_iiqe_database_schema.md
 - Brain_IIQE\iiqe_database\oic_iiqe_database_ai_schema.csv
+- Brain_IIQE\iiqe_database\oic_iiqe_primary_key.csv
+- Brain_IIQE\iiqe_database\oic_iiqe_relationship_candidates.csv
 
 Step:
 การสมัครสอบรอบสอบปกติบุคคลธรรมดา มีขั้นตอนคือ
