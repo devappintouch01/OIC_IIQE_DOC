@@ -1,21 +1,22 @@
 ## OIC IIQE REGISTRATION EXAMINATION SPEC
+#### การสอบการขึ้นทะเบียน นายหน้าประกันชีวิต/นายหน้าประกันวินาศภัย การประกันต่อ Life/ Non Life Reinsurance Broker
 
-Context:
+### Context:
 - D:\Works\OICIIQE\*
 - D:\Works\OICIIQE\OIC_IIQE
 - D:\Works\OICIIQE\IIQE_API
 - D:\Works\OICIIQE\Brain_IIQE\registration_examination_spec\screenshort\*
 
-Links
+### Links:
 - [[IIQE 2025] ประกันภัยต่อ สรุป](https://docs.google.com/spreadsheets/d/11idsezbjxl3TPpq6DsTspX2MMYa8NEnIhEyejgE5UnU/)
 - [[IIQE 2025] ประกันภัยต่อ](https://docs.google.com/spreadsheets/d/1a2PSQeYnBNX1KnhCa-XqZv8l_G1LiwVf5LqQssVFeVE/)
 
-ConnectionString:
+### ConnectionString:
 ```json
 "DefaultConnection": "DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.138)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB)));User Id=oiciiqe;Password=oiciiqe;"
 ```
 
-Observation:
+### Observation:
 ระบบรับสมัครสอบเพื่อขอรับใบอนุญาตเป็นนายหน้าประกันภัย
 การสอบรอบปกติบุคคลธรรมดา จะเป็นการเปิดรอบสอบโดยเจ้าหน้าที่ คปภ. และ สมัครสอบโดยประชาชน จะมี Flow ดังนี้
 
@@ -53,14 +54,16 @@ Note: รอบสอบ คือ Table MT_T_P_EXAM_ROUND และ Table MT_T_
 
 2. yyyyy
 
-Problems:
+รายวิชา
+
+### Problems:
 จาก Observation
 
 ประเภทการขึ้นทะเบียน [OICIIQE.MT_T_REGISTRATION_TYPE]
 นายหน้าประกันวินาศภัย การประกันต่อ	Life Reinsurance Broker
 นายหน้าประกันวินาศภัย การประกันต่อ	Non Life Reinsurance Broker
 
-Task:
+### Task:
 1. วางแผนการ Implement ระบบ เพื่อให้รองรับการเปิดรอบสอบ (ใช้ Plan mode)
 2. ตรวจสอบผลกระทบ
 3. หากมี Script Database ที่จะต้องไป Execute ให้เตรียมให้ด้วย
