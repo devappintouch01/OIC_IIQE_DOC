@@ -2,10 +2,10 @@
 #### การสอบการขึ้นทะเบียน นายหน้าประกันชีวิต/นายหน้าประกันวินาศภัย การประกันต่อ Life/ Non Life Reinsurance Broker
 
 ### Context:
-- D:\Works\OICIIQE\*
+- D:\Works\OICIIQE\/*
 - D:\Works\OICIIQE\OIC_IIQE
 - D:\Works\OICIIQE\IIQE_API
-- D:\Works\OICIIQE\Brain_IIQE\registration_examination_spec\screenshort\*
+- D:\Works\OICIIQE\Brain_IIQE\registration_examination_spec\screenshort\/*
 
 ### Links:
 - [[IIQE 2025] ประกันภัยต่อ สรุป](https://docs.google.com/spreadsheets/d/11idsezbjxl3TPpq6DsTspX2MMYa8NEnIhEyejgE5UnU/)
@@ -51,7 +51,6 @@ Note: รอบสอบ คือ Table MT_T_P_EXAM_ROUND และ Table MT_T_
 
 ประชาชน (บุคคลธรรมดา) สมัครสอบ
 1. xxxxx
-
 2. yyyyy
 
 รายวิชา
@@ -59,9 +58,9 @@ Note: รอบสอบ คือ Table MT_T_P_EXAM_ROUND และ Table MT_T_
 ### Problems:
 จาก Observation
 
-ประเภทการขึ้นทะเบียน [OICIIQE.MT_T_REGISTRATION_TYPE]
-นายหน้าประกันวินาศภัย การประกันต่อ	Life Reinsurance Broker
-นายหน้าประกันวินาศภัย การประกันต่อ	Non Life Reinsurance Broker
+implement การประเภทการขึ้นทะเบียน [OICIIQE.MT_T_REGISTRATION_TYPE] เพิ่มเติม
+- นายหน้าประกันวินาศภัย การประกันต่อ	Life Reinsurance Broker
+- นายหน้าประกันวินาศภัย การประกันต่อ	Non Life Reinsurance Broker
 
 ### Task:
 1. วางแผนการ Implement ระบบ เพื่อให้รองรับการเปิดรอบสอบ (ใช้ Plan mode)
