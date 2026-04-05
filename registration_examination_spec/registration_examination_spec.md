@@ -41,14 +41,14 @@
 
 2. ไปที่หน้า **รอบสอบปกติสำหรับสมาชิกบุคคลธรรมดา** (`/PersonalExamRound/PersonalExamRound`) และกดปุ่ม **"+ เพิ่ม"** ระบบจะ redirect ไปยังหน้า (`/PersonalExamRound/PersonalExamRound_New`)
 
-   <img src="screenshort/1.png" alt="หน้ารายการรอบสอบ" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/1.png" alt="หน้ารายการรอบสอบ" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 1]** หน้ารายการรอบสอบปกติสำหรับสมาชิกบุคคลธรรมดา (`/PersonalExamRound/PersonalExamRound`)
    > แสดง filter ค้นหา (ชื่อศูนย์สอบ, ชื่อสถานที่สอบ, ประเภทใบอนุญาต, ช่วงวันที่, เวลาสอบ, รหัสรอบสอบ, สถานะ)
    > และตารางรายการรอบสอบที่มีอยู่ โดยมีปุ่ม **"+ เพิ่ม"** สำหรับเพิ่มรอบสอบใหม่
    > คอลัมน์ในตาราง: ลำดับ, ชื่อสถานที่สอบ, วันที่สอบ, เวลาสอบ, ประเภทใบอนุญาต, รหัสรอบสอบ, ที่นั่งสอบทั้งหมด, ที่นั่งคงเหลือ, สถานะ, แก้ไขล่าสุดโดย, วันที่/เวลาแก้ไขล่าสุด
 
-   <img src="screenshort/2_1.png" alt="หน้าเพิ่มรอบสอบใหม่" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/2_1.png" alt="หน้าเพิ่มรอบสอบใหม่" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 2]** หน้าฟอร์มสร้างรอบสอบใหม่ (`/PersonalExamRound/PersonalExamRound_New`)
    > แสดง field กรอกข้อมูล ได้แก่:
@@ -70,20 +70,20 @@
 
    - **สถานที่สอบ** กดปุ่ม **"ค้นหาและเลือกสถานที่สอบ"**
 
-     <img src="screenshort/2_1.png" alt="ปุ่มค้นหาสถานที่สอบ" style="border: 1px solid black; width: 80%;">
+     <img src="screenshort/2_1.png" alt="ปุ่มค้นหาสถานที่สอบ" style="border: 1px solid black; width: 100%;">
 
      > **[รูป 2 - ซ้ำ]** แสดงปุ่ม **"ค้นหาและเลือกสถานที่สอบ"** อยู่ในแถว field สถานที่สอบ บนหน้าฟอร์มสร้างรอบสอบ
 
      ระบบจะแสดง Modal **"ค้นหาและเลือกสถานที่สอบ"**
 
-     <img src="screenshort/3_1.png" alt="Modal ค้นหาสถานที่สอบ" style="border: 1px solid black; width: 80%;">
+     <img src="screenshort/3_1.png" alt="Modal ค้นหาสถานที่สอบ" style="border: 1px solid black; width: 100%;">
 
      > **[รูป 3]** Modal **"ค้นหาและเลือกสถานที่สอบ"** (ยังไม่ได้ค้นหา)
      > มี filter: **กลุ่มสถานที่สอบ** (dropdown: "-- กรุณาเลือก --") และ **จังหวัด** (dropdown: "นครปฐม")
      > ปุ่ม **"เลือก"** สำหรับค้นหา, ตารางแสดงผลมีคอลัมน์: เลือก, ลำดับ, ชื่อสถานที่สอบ, จังหวัด, กลุ่มสถานที่สอบ, ประเภท
      > สถานะ: "ไม่พบข้อมูล" (เพราะยังไม่ได้กดค้นหา)
 
-     <img src="screenshort/4_1.png" alt="Modal ผลการค้นหาสถานที่สอบ" style="border: 1px solid black; width: 80%;">
+     <img src="screenshort/4_1.png" alt="Modal ผลการค้นหาสถานที่สอบ" style="border: 1px solid black; width: 100%;">
 
      > **[รูป 4]** Modal **"ค้นหาและเลือกสถานที่สอบ"** (หลังค้นหาแล้ว)
      > filter: กลุ่มสถานที่สอบ = "สำนักงาน คปภ.", จังหวัด = "นครปฐม"
@@ -94,7 +94,7 @@
 
      กดบันทึก เพื่อยืนยันสถานที่สอบ
 
-     <img src="screenshort/5_1.png" alt="ยืนยันสถานที่สอบ" style="border: 1px solid black; width: 80%;">
+     <img src="screenshort/5_1.png" alt="ยืนยันสถานที่สอบ" style="border: 1px solid black; width: 100%;">
 
      > **[รูป 5]** หน้าฟอร์มหลัง บันทึกสถานที่สอบสำเร็จ
      > field **สถานที่สอบ** แสดง card: checkbox tick + รหัส "73777" + ชื่อ "สำนักงาน คปภ. ภาค 7 (นครปฐม)" พร้อมปุ่ม ✕ สำหรับลบ
@@ -113,7 +113,7 @@
 
    - กดยืนยันเพื่อบันทึกข้อมูลรอบสอบ
 
-     <img src="screenshort/7.png" alt="ยืนยันบันทึกรอบสอบ" style="border: 1px solid black; width: 80%;">
+     <img src="screenshort/7.png" alt="ยืนยันบันทึกรอบสอบ" style="border: 1px solid black; width: 100%;">
 
      > **[รูป 7]** Dialog ยืนยันการบันทึกสำเร็จ
      > แสดง icon วงกลมสีเขียว + เครื่องหมายถูก พร้อมข้อความ **"บันทึกข้อมูลเรียบร้อยแล้ว"** และปุ่ม **"ปิด"**
@@ -123,7 +123,7 @@
 
 3. ระบบแสดงรอบสอบที่สร้าง
 
-   <img src="screenshort/8_2.png" alt="หน้ารายการรอบสอบ แสดงรูปรอบสอบที่สร้าง" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/8_2.png" alt="หน้ารายการรอบสอบ แสดงรูปรอบสอบที่สร้าง" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 8_2]** หน้ารายการรอบสอบปกติ (`/PersonalExamRound/PersonalExamRound`) หลังสร้างรอบสอบสำเร็จ
    > แสดงรายการรอบสอบที่มีอยู่ในระบบ โดยรอบสอบที่เพิ่งสร้าง (ลำดับ 3 และ 4) จะถูก **highlight กรอบสีแดง** เพื่อเน้นให้เห็นชัด
@@ -135,7 +135,7 @@
 
 1. ประชาชน (บุคคลธรรมดา) เข้าสู่ระบบสำหรับประชาชน (`/Login/Login`) ระบบจะ Redirect ไปหน้า Dashboard-หน้าหลัก (`/TaskBoards/Task`)
 
-   <img src="screenshort/9.png" alt="หน้า Dashboard-หน้าหลัก" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/9.png" alt="หน้า Dashboard-หน้าหลัก" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 9]** หน้า **Dashboard-หน้าหลัก** (`/TaskBoards/Task`) สำหรับผู้ใช้งานประชาชน (บุคคลธรรมดา)
    > แสดง widget สรุปสถานะคำขอ แบ่งเป็น 4 กลุ่ม:
@@ -152,7 +152,7 @@
 
 2. กดปุ่ม **ตารางสอบ** ที่แถบเมนู เพื่อเข้าสู่หน้าตารางสอบ (`/ExamSchedule/ExamSchedule`)
 
-   <img src="screenshort/10.png" alt="หน้าตารางสอบ (ก่อนค้นหา)" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/10.png" alt="หน้าตารางสอบ (ก่อนค้นหา)" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 10]** หน้า **ตารางสอบ** (`/ExamSchedule/ExamSchedule`) ก่อนค้นหา
    > มี filter การค้นหา (ทุก field บังคับ): **ประเภทใบอนุญาต**, **จังหวัด**, **สถานที่สอบ/สนามสอบ**, **ช่วงวันที่สอบ ตั้งแต่วันที่**, **ถึงวันที่**
@@ -175,7 +175,7 @@
    - ช่วงวันที่สอบ ตั้งแต่วันที่: 05/04/2569
    - ถึงวันที่: 30/04/2569
 
-   <img src="screenshort/11_1.png" alt="หน้าตารางสอบหลังค้นหา" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/11_1.png" alt="หน้าตารางสอบหลังค้นหา" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 11_1]** หน้า **ตารางสอบ** หลังค้นหาด้วย filter ที่ระบุ
    > แสดงผลในรูปแบบ **ปฏิทิน** (calendar view) แบ่งตามคอลัมน์ วันจันทร์-อาทิตย์
@@ -186,7 +186,7 @@
 
 4. กดเลือกเวลาสอบจากหน้าตารางสอบ เช่น เลือกเวลา **"09:00-11:30 น. ของวันที่ 17 เม.ย. 2569"** ระบบจะ redirect ไปยังหน้า **คำขอสมัครสอบรอบปกติสำหรับสมาชิกบุคคลธรรมดา** (`/ExamRequest/Detail/New/0/31797`) พร้อมระบุข้อมูลรอบสอบให้อัตโนมัติตามที่ผู้สมัครเลือก หากข้อมูลถูกต้อง ให้กดปุ่ม **"สร้างคำขอสมัครสอบ"**
 
-   <img src="screenshort/12.png" alt="หน้าคำขอสมัครสอบรอบปกติ" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/12.png" alt="หน้าคำขอสมัครสอบรอบปกติ" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 12]** หน้า **คำขอสมัครสอบรอบปกติสำหรับสมาชิกบุคคลธรรมดา** (`/ExamRequest/Detail/New/0/31797`)
    > ส่วนบน: ข้อมูลที่อยู่ของผู้สมัคร (ที่อยู่, ตำบล/แขวง, อำเภอ/เขต, จังหวัด, รหัสไปรษณีย์)
@@ -199,7 +199,7 @@
 
    - ระบบแสดง Popup ยืนยัน ถ้ากด **"ยืนยัน"** จะสร้างคำขอสมัครสอบ
 
-   <img src="screenshort/13.png" alt="Popup ยืนยันสร้างคำขอสมัครสอบ" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/13.png" alt="Popup ยืนยันสร้างคำขอสมัครสอบ" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 13]** Dialog ยืนยันการสร้างคำขอสมัครสอบ
    > แสดง icon วงกลมสีเขียว + เครื่องหมาย **?** พร้อมข้อความ **"ยืนยันการสร้างคำขอสมัครสอบหรือไม่?"**
@@ -214,7 +214,7 @@
 
 5. ระบบ redirect ไปยังหน้า **ชำระเงินค่าสมัครสอบ**
 
-   <img src="screenshort/14.png" alt="หน้าชำระเงินค่าสมัครสอบ" style="border: 1px solid black; width: 80%;">
+   <img src="screenshort/14.png" alt="หน้าชำระเงินค่าสมัครสอบ" style="border: 1px solid black; width: 100%;">
 
    > **[รูป 14]** หน้า **คำขอสมัครสอบรอบปกติสำหรับสมาชิกบุคคลธรรมดา** (`/ExamRequest/Detail/Edit/12`) หลังสร้างคำขอสำเร็จ
    > แสดง Stepper workflow 3 ขั้นตอน: **1. สร้างคำขอสมัครสอบรอบปกติ** (เขียว/เสร็จแล้ว) → **2. ชำระเงินค่าสมัครสอบ** (น้ำเงิน/ขั้นตอนปัจจุบัน) → ผลการสอบ
