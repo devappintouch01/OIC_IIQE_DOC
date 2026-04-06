@@ -387,9 +387,9 @@
 
    **ตารางประเภท**
    - ประเภทใบอนุญาต จะใช้ตาราง `MT_T_LICENSE_TYPE`
-   - ประเภทการสอบขึ้นทะเบียน ให้เพิ่มตาราง `MT_T_REGISTRATION_TYPE` Column ให้คล้ายกับตาราง `MT_T_LICENSE_TYPE`
+   - ประเภทการสอบขึ้นทะเบียน ให้เพิ่มตาราง `MT_T_REGIST_TYPE` Column ให้คล้ายกับตาราง `MT_T_LICENSE_TYPE`
 
-#### Tables MT_T_REGISTRATION_TYPE : ประเภทการขึ้นทะเบียน
+#### Tables MT_T_REGIST_TYPE : ประเภทการขึ้นทะเบียน
 
 | ลำดับ | Column Name | Data Type | Allow Nulls | Field Description |
 |---|---|---|:---:|---|
@@ -409,20 +409,349 @@
 | 14 | OIC_CODE | VARCHAR2(20) | Y | รหัสสำหรับระบบการเงิน |
 | 15 | INCOME_CODE | VARCHAR2(20) | Y | รหัสสำหรับระบบการเงิน |
 
-##### ข้อมูล Initial  MT_T_REGISTRATION_TYPE
+##### ข้อมูล Initial  MT_T_REGIST_TYPE
 | ID | CODE | NAME_TH | NAME_EN | ISACTIVE | CREATE_BY | CREATE_DATE | UPDATE_BY | UPDATE_DATE | FIN_CODE | FEE_NAME | DISPLAY_NAME_TH | DISPLAY_NAME_EN | OIC_CODE | INCOME_CODE |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 61 | นายหน้าประกันชีวิต การประกันต่อ | Life Reinsurance Broker | 1 | 1 | | | | 203 | ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันชีวิต การประกันต่อ | นายหน้าประกันชีวิต การประกันต่อ | Life Reinsurance Broker | 203 | 203 |
-| 2 | 62 | นายหน้าประกันวินาศภัย การประกันต่อ | Non Life Reinsurance Broker | 1 | 1 | | | | 204 | ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันวินาศภัย การประกันต่อ | นายหน้าประกันวินาศภัย การประกันต่อ | Non Life Reinsurance Broker | 204 | 204 |
+| 1 | 61 | นายหน้าประกันชีวิต การประกันต่อ | Life Reinsurance Broker | 1 | 1 | | | | 203 | ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันชีวิต การประกันต่อ | นายหน้าประกันชีวิต การประกันต่อ | Life Reinsurance Broker | 203 | OIC002-00003 |
+| 2 | 62 | นายหน้าประกันวินาศภัย การประกันต่อ | Non Life Reinsurance Broker | 1 | 1 | | | | 204 | ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันวินาศภัย การประกันต่อ | นายหน้าประกันวินาศภัย การประกันต่อ | Non Life Reinsurance Broker | 204 | OIC002-00004 |
 
    **การเลือกใบอนุญาต ตอนที่สร้างรอบสอบ (`/PersonalExamRound_New`)**
-   - ที่ ประเภทใบอนุญาต ให้ดึงข้อมูลจาก 2 ตาราง มาแสดงเลย คือ `MT_T_LICENSE_TYPE` และ `MT_T_REGISTRATION_TYPE`
+   - ที่ ประเภทใบอนุญาต ให้ดึงข้อมูลจาก 2 ตาราง มาแสดงเลย คือ `MT_T_LICENSE_TYPE` และ `MT_T_REGIST_TYPE`
    - เปลี่ยน lable จาก `การเลือกใบอนุญาต` เป็น `การเลือกใบอนุญาต/การขึ้นทะเบียน`
 
    **การตั้งค่าศูนย์สอบ  (`/ExamCenter/ExamCenter_Detail/50`)**
-   - ที่ ประเภทใบอนุญาตที่รับผิดชอบ ให้ดึงข้อมูลจาก 2 ตาราง มาแสดงเลย คือ `MT_T_LICENSE_TYPE` และ `MT_T_REGISTRATION_TYPE`
+   - ที่ ประเภทใบอนุญาตที่รับผิดชอบ ให้ดึงข้อมูลจาก 2 ตาราง มาแสดงเลย คือ `MT_T_LICENSE_TYPE` และ `MT_T_REGIST_TYPE`
    - เปลี่ยน lable จาก `ประเภทใบอนุญาตที่รับผิดชอบ` เป็น `ประเภทใบอนุญาต/การขึ้นทะเบียนที่รับผิดชอบ`
 
+
+3. วิชาสอบ และเกณฑ์คะแนนสอบ
+   61 นายหน้าประกันชีวิต ประเภทการจัดการให้มีการประกันภัยต่อ
+   โครงสร้างหลักสูตรการสอบ
+   - หมวด 1 ความรู้เกี่ยวกับการประกันภัยต่อ
+   - วิชาที่ 1 : วิชาความรู้เกี่ยวกับการประกันภัยต่อ จำนวน 40 ข้อ ข้อละ 2 คะแนน คิดเป็นคะแนนเต็ม 80 คะแนน เกณฑ์การสอบผ่าน 60% (ทำข้อสอบถูกตั้งแต่ 24 ข้อ คิดเป็นคะแนนตั้งแต่ 48 คะแนน)
+   
+   62 (R02) นายหน้าประกันวินาศภัย ประเภทการจัดการให้มีการประกันภัยต่อ
+   โครงสร้างหลักสูตรการสอบ
+   - หมวด 1 ความรู้เกี่ยวกับการประกันภัยต่อ
+   - วิชาที่ 1 : วิชาความรู้เกี่ยวกับการประกันภัยต่อ จำนวน 40 ข้อ ข้อละ 2 คะแนน คิดเป็นคะแนนเต็ม 80 คะแนน เกณฑ์การสอบผ่าน 60% (ทำข้อสอบถูกตั้งแต่ 24 ข้อ คิดเป็นคะแนนตั้งแต่ 48 คะแนน)
+
+**ยังไม่ได้ข้อมูลรหัสวิชา และชื่อวิชา จาก Project Owner**
+
+---
+
+## Requirement Analysis
+
+### 1. สถานะปัจจุบันของระบบ (As-Is)
+
+จากการสำรวจ Source Code และ Database พบว่า **โครงสร้างหลักของ Feature นี้ถูก Implement ไว้บางส่วนแล้ว** โดยมีสิ่งที่มีอยู่แล้วดังนี้:
+
+#### ✅ สิ่งที่มีอยู่แล้วใน Database
+
+| รายการ | ชื่อ | หมายเหตุ |
+|---|---|---|
+| Table ประเภทการขึ้นทะเบียน | `MT_T_REGIST_TYPE` | **มีอยู่แล้ว** — structure เหมือน `MT_T_LICENSE_TYPE` ทุก column |
+| Field แยกประเภท (Discriminator) | `MT_T_P_EXAM_ROUND.IS_LICENSE_TYPE` | `1` = ใบอนุญาต, `2` = การขึ้นทะเบียน |
+| Field FK สำรอง | `MT_T_P_EXAM_ROUND.REGIST_TYPE_ID` | FK ชี้ไปยัง `MT_T_REGIST_TYPE` |
+| Field แยกประเภทใน Bill Payment | `IIQE_T_BILL_PAYMENT.IS_LICENSE_TYPE` | มีอยู่แล้ว |
+| Field แยกประเภทใน Exam Center | `MT_T_EXAM_CENTER_LICENSE_TYPE.IS_LICENSE_TYPE` | มีอยู่แล้ว ปัจจุบัน = `1` ทั้งหมด |
+
+#### ✅ สิ่งที่มีอยู่แล้วใน Code
+
+| รายการ | ไฟล์/Pattern |
+|---|---|
+| Repository สำหรับ `MT_T_REGIST_TYPE` | `IIQE_RegistrationTypeRepo.cs`, `IIQE_RegistrationTypeBL.cs` |
+| UNION query รวม 2 ตาราง | `ExamCenterRepo.GetLicenseTypeList()` — `SELECT ... FROM MT_T_LICENSE_TYPE UNION ALL SELECT ... FROM MT_T_REGIST_TYPE` |
+| CASE statement แยกแสดงชื่อ | `PersonalExamRoundRepo` — `CASE WHEN IS_LICENSE_TYPE = 2 THEN r.DISPLAY_NAME_TH ELSE l.DISPLAY_NAME_TH` |
+| ViewModel ที่รองรับ `IS_LICENSE_TYPE` | `IIQE_PersonalExamRound_New_VM.IS_LICENSE_TYPE` |
+
+#### ⚠️ ปัญหาของข้อมูลปัจจุบันใน `MT_T_REGIST_TYPE`
+
+ข้อมูลใน `MT_T_REGIST_TYPE` ที่มีอยู่ **ไม่ตรงกับ Requirement** ที่ต้องการ:
+
+| | DB ปัจจุบัน | Requirement ต้องการ |
+|---|---|---|
+| ID=1, CODE | `R02` | ควรเป็น `61` |
+| ID=1, NAME_TH | `การจัดการประกันชีวิต ประเภทต่อ` | ควรเป็น `นายหน้าประกันชีวิต การประกันต่อ` |
+| ID=2, CODE | `R01` | ควรเป็น `62` |
+| ID=2, NAME_TH | `การจัดการประกันวินาศภัย ประเภทต่อ` | ควรเป็น `นายหน้าประกันวินาศภัย การประกันต่อ` |
+| IS_ACTIVE ทั้งหมด | `NULL` | ควรเป็น `1` |
+| OIC_CODE | `NULL` | ควรเป็น `203`, `204` |
+| INCOME_CODE | `NULL` | ควรเป็น `OIC002-00003`, `OIC002-00004` (หรือค่าที่ระบบการเงินกำหนด) |
+
+---
+
+### 2. Gap Analysis (สิ่งที่ยังขาด / ต้องทำ)
+
+#### 2.1 Database — Data Gaps
+
+| # | รายการ | Action |
+|:---:|---|---|
+| 1 | `MT_T_REGIST_TYPE` — ข้อมูลไม่ครบ/ไม่ถูกต้อง (CODE, NAME, IS_ACTIVE, OIC_CODE, INCOME_CODE) | **UPDATE ข้อมูล** |
+| 2 | `MT_T_EXAM_CENTER_LICENSE_TYPE` — ยังไม่มี record สำหรับ IS_LICENSE_TYPE=2 (registration type) | **INSERT ข้อมูล** ศูนย์สอบที่รองรับการขึ้นทะเบียน |
+
+#### 2.2 Frontend — UI Gaps
+
+| # | หน้า | รายการที่ต้องแก้ | Action |
+|:---:|---|---|---|
+| 1 | `/PersonalExamRound/PersonalExamRound_New` | Dropdown `ddlLicenseType` ดึงข้อมูลจาก `GetLicenseType()` — ต้องตรวจสอบว่า method นี้ UNION กับ `MT_T_REGIST_TYPE` แล้วหรือยัง | ตรวจสอบ + แก้ไข |
+| 2 | `/PersonalExamRound/PersonalExamRound_New` | Label `ประเภทใบอนุญาต` → `ประเภทใบอนุญาต/การขึ้นทะเบียน` | แก้ label |
+| 3 | `/ExamCenter/ExamCenter_Detail` | ส่วนเลือก `ประเภทใบอนุญาตที่รับผิดชอบ` → ต้องแสดง registration type ด้วย | ตรวจสอบ + แก้ไข |
+| 4 | `/ExamCenter/ExamCenter_Detail` | Label `ประเภทใบอนุญาตที่รับผิดชอบ` → `ประเภทใบอนุญาต/การขึ้นทะเบียนที่รับผิดชอบ` | แก้ label |
+
+#### 2.3 Business Logic — Logic Gaps
+
+| # | รายการ | Action |
+|:---:|---|---|
+| 1 | `INSERT MT_T_P_EXAM_ROUND` — ต้องตรวจสอบว่า `IS_LICENSE_TYPE` และ `REGIST_TYPE_ID` ถูก set ถูกต้องเมื่อเลือก registration type | ตรวจสอบ + แก้ไข |
+| 2 | Bill Payment — `FEE_NAME` ที่ส่งไป ERP ใน `DESCP_1` ต้องดึงจาก `MT_T_REGIST_TYPE.FEE_NAME` ไม่ใช่ `MT_T_LICENSE_TYPE.FEE_NAME` เมื่อ `IS_LICENSE_TYPE = 2` | ตรวจสอบ + แก้ไข |
+| 3 | Exam Schedule (หน้าตารางสอบ) — filter ประเภทใบอนุญาตต้องแสดง registration type ด้วย | ตรวจสอบ |
+
+---
+
+### 3. Impact Analysis
+
+#### High Impact (ต้องแก้แน่นอน)
+
+| ระดับ | Component | รายละเอียด |
+|:---:|---|---|
+| 🔴 | **Data: `MT_T_REGIST_TYPE`** | Update ข้อมูลให้ถูกต้อง — ทุก flow ขึ้นอยู่กับข้อมูลนี้ |
+| 🔴 | **Data: `MT_T_EXAM_CENTER_LICENSE_TYPE`** | Insert ศูนย์สอบที่รองรับ registration type (IS_LICENSE_TYPE=2) — ถ้าไม่มี ระบบ validate ไม่ผ่าน |
+| 🔴 | **UI: PersonalExamRound_New** | Dropdown ต้องแสดง registration type — ถ้าไม่มีในตัวเลือก เจ้าหน้าที่เปิดรอบสอบไม่ได้ |
+| 🔴 | **BL: INSERT MT_T_P_EXAM_ROUND** | ต้อง set `IS_LICENSE_TYPE=2` และ `REGIST_TYPE_ID` ให้ถูกต้อง |
+
+#### Medium Impact (ตรวจสอบและปรับ)
+
+| ระดับ | Component | รายละเอียด |
+|:---:|---|---|
+| 🟡 | **UI: ExamCenter_Detail** | Label + dropdown รองรับ registration type |
+| 🟡 | **BL: Bill Payment** | FEE_NAME ใน DESCP_1 ต้องแยกดึงจาก MT_T_REGIST_TYPE เมื่อ IS_LICENSE_TYPE=2 |
+| 🟡 | **UI: ExamSchedule** | หน้าตารางสอบต้องแสดง registration type ใน filter และ calendar |
+
+#### Low Impact (น่าจะรองรับอยู่แล้ว)
+
+| ระดับ | Component | รายละเอียด |
+|:---:|---|---|
+| 🟢 | **BL: ExamCenterRepo** | UNION query มีอยู่แล้ว — ตรวจสอบ IS_ACTIVE |
+| 🟢 | **BL: PersonalExamRoundRepo CASE** | แยก DISPLAY_NAME_TH ตาม IS_LICENSE_TYPE มีอยู่แล้ว |
+| 🟢 | **IIQE_T_BILL_PAYMENT** | IS_LICENSE_TYPE field มีอยู่แล้ว |
+| 🟢 | **ViewModel** | IS_LICENSE_TYPE ใน PersonalExamRound_New_VM มีอยู่แล้ว |
+
+---
+
+### 4. การส่งข้อมูลรอบสอบไประบบ Exam (EXAM System)
+
+**ที่มา:** ระบบมี Batch Process ชื่อ `IIQE_SEND_P_EXAM_ROUND` ที่ส่งข้อมูลรอบสอบไปยังระบบ EXAM ผ่าน API
+
+#### สถานะของ Code
+
+**✅ Code รองรับ IS_LICENSE_TYPE = 2 แล้ว** (ไฟล์: `API_BATCH_m/API_BATCH/Managers/IIQE_SEND_P_EXAM_ROUND.cs`)
+
+```csharp
+if (dr["IS_LICENSE_TYPE"].ToString() == "1")
+{
+    scd_data.EXAM_LICENSE = dr["EXAM_LICENSE"].ToString(); // ส่ง LICENSE CODE ไป EXAM System
+}
+if (dr["IS_LICENSE_TYPE"].ToString() == "2")
+{
+    string registypeid = _sendExamRound.MT_T_REGIST_TYPE(dr["REGIST_TYPE_ID"].ToString());
+    scd_data.REGIST_TYPE_ID = Convert.ToInt32(registypeid); // ส่ง REGIST_TYPE_ID ไป EXAM System
+}
+```
+
+Query ดึงข้อมูลรอบสอบก็ SELECT ทั้ง `IS_LICENSE_TYPE` และ `REGIST_TYPE_ID` มาแล้ว
+
+#### ⚠️ ปัญหาที่พบ: REGIST_TYPE_ID ใน MT_T_P_EXAM_ROUND
+
+Code ตรวจสอบ `REGIST_TYPE_ID` โดย query ไปที่ `MT_T_REGIST_TYPE WHERE ID = :ID` — ถ้า `REGIST_TYPE_ID` ใน `MT_T_P_EXAM_ROUND` เป็น NULL หรือ ID ไม่ตรงกับ `MT_T_REGIST_TYPE` จะส่งข้อมูลผิดพลาด
+
+> **สาเหตุ:** `MT_T_REGIST_TYPE` ปัจจุบัน ID=1 (CODE=R02), ID=2 (CODE=R01) และข้อมูล Requirement ต้องการ ID=1 (CODE=61), ID=2 (CODE=62) — ต้อง UPDATE ข้อมูลให้ถูกต้องก่อน
+
+#### Payload ที่ส่งไป EXAM System
+
+| Field | ที่มา | กรณี IS_LICENSE_TYPE=1 | กรณี IS_LICENSE_TYPE=2 |
+|---|---|---|---|
+| `EXAM_LICENSE` | `MT_T_LICENSE_TYPE.CODE` | ✅ ส่งรหัสใบอนุญาต | ไม่ส่ง |
+| `REGIST_TYPE_ID` | `MT_T_REGIST_TYPE.ID` | ไม่ส่ง | ✅ ส่ง ID ของประเภทขึ้นทะเบียน |
+| `TESTING_NO` | `MT_T_P_EXAM_ROUND.CODE` | ✅ | ✅ |
+| `EXAM_DATE` | `MT_T_P_EXAM_ROUND.EXAM_DATE` | ✅ | ✅ |
+| `EXAM_PV` | `MT_T_PROVINCE.CODE` | ✅ | ✅ |
+| `EXAM_P` | `MT_T_EXAM_LOCATION.AG_CODE` (รหัสสถานที่สอบในระบบ EXAM) | ✅ | ✅ |
+
+#### สรุป Flow 1
+
+| | รายการ | สถานะ |
+|:---:|---|:---:|
+| ✅ | Code logic แยก IS_LICENSE_TYPE 1/2 มีอยู่แล้ว | ไม่ต้องแก้ code |
+| 🔴 | ข้อมูลใน MT_T_REGIST_TYPE ต้อง UPDATE ให้ถูกต้องก่อน | **ต้องทำ** |
+| 🔴 | ตอนสร้างรอบสอบ (INSERT MT_T_P_EXAM_ROUND) ต้อง set REGIST_TYPE_ID ให้ถูกต้อง | **ต้องตรวจสอบ** |
+
+---
+
+### 5. การรับผลสอบ (Exam Results)
+
+หลังจากระบบ EXAM ประมวลผลผลสอบ จะส่งข้อมูลกลับมายังระบบ IIQE เพื่อเก็บและอนุมัติ
+
+#### ตาราง Master ที่เกี่ยวข้อง
+
+**`MT_T_EXAM_SCORE_SETTING` — เกณฑ์คะแนนสอบ**
+
+| Column | Description |
+|---|---|
+| `LICENSE_TYPE_ID` | FK ชี้ไปยัง MT_T_LICENSE_TYPE หรือ MT_T_REGIST_TYPE (ขึ้นกับ IS_LICENSE_TYPE) |
+| `IS_LICENSE_TYPE` | `1` = ใบอนุญาต, `2` = ขึ้นทะเบียน |
+| `START_DATE`, `END_DATE` | ช่วงวันที่ที่เกณฑ์นี้มีผล |
+| `IS_ACTIVE` | สถานะ |
+
+> JOIN กับ `MT_T_EXAM_SCORE_SETTING_DT` เพื่อดูรายวิชา + PERCENT_PASS + MAX_SCORE
+
+**`MT_T_SUBJECT_ITEM` — รายวิชาสอบ**
+
+| Column | Description |
+|---|---|
+| `LICENSE_TYPE_ID` | FK ชี้ไปยัง MT_T_LICENSE_TYPE หรือ MT_T_REGIST_TYPE |
+| `IS_LICENSE_TYPE` | `1` = ใบอนุญาต, `2` = ขึ้นทะเบียน |
+| `SUBJECT_GROUP_ID` | FK → `MT_T_SUBJECT_GROUP` (กลุ่มวิชา) |
+| `CODE`, `NAME_TH` | รหัสและชื่อวิชา |
+| `MAX_SCORE` | คะแนนเต็ม |
+| `AG_CODE` | รหัสวิชาในระบบ AG |
+| `TRANSFER_STATUS` | สถานะส่งข้อมูลไประบบ AG (`0`=รอ, `1`=ส่งแล้ว) |
+
+#### ⚠️ ปัญหาที่พบ: ข้อมูลขาดสำหรับ Registration Type
+
+จากการ Query DB จริง พบว่า:
+
+**`MT_T_EXAM_SCORE_SETTING`** — **ไม่มีข้อมูลสำหรับ IS_LICENSE_TYPE = 2 เลย**
+- มีข้อมูล IS_ACTIVE=1 เฉพาะ LICENSE_TYPE_ID 1-6 (IS_LICENSE_TYPE=1 ทั้งหมด)
+- ไม่มี record ที่ IS_LICENSE_TYPE=2
+
+**`MT_T_SUBJECT_ITEM`** — **มีข้อมูล IS_LICENSE_TYPE=2 เพียง 1 วิชา (ไม่สมบูรณ์)**
+- ID=37, LICENSE_TYPE_ID=17 (ชี้ไปยัง MT_T_LICENSE_TYPE ที่ IS_ACTIVE=0 — ไม่ถูกต้อง)
+- ยังไม่มีวิชาที่ผูกกับ `MT_T_REGIST_TYPE` ID=1 (61) หรือ ID=2 (62)
+- **ไม่มีเกณฑ์คะแนน** (MT_T_EXAM_SCORE_SETTING_DT) สำหรับ registration type เลย
+
+#### โครงสร้างหลักสูตรการสอบ (จาก Project Owner)
+
+**ประเภท 61 — นายหน้าประกันชีวิต ประเภทการจัดการให้มีการประกันภัยต่อ**
+**ประเภท 62 — นายหน้าประกันวินาศภัย ประเภทการจัดการให้มีการประกันภัยต่อ**
+
+| หมวด | วิชา | จำนวนข้อ | คะแนนเต็ม | เกณฑ์ผ่าน |
+|---|---|:---:|:---:|---|
+| หมวด 1: ความรู้เกี่ยวกับการประกันภัยต่อ | วิชาความรู้เกี่ยวกับการประกันภัยต่อ | 40 ข้อ × 2 คะแนน | 80 | 60% (≥48 คะแนน / ≥24 ข้อ) |
+
+> **ข้อสังเกต:** โครงสร้างหลักสูตร 61 และ 62 **เหมือนกันทุกประการ** — หมวดเดียว วิชาเดียว คะแนนเดียวกัน เกณฑ์ผ่านเดียวกัน
+
+#### วิเคราะห์: รหัสวิชา / ชื่อวิชา และการแยก Record
+
+**คำถาม 1 — `AG_CODE` (รหัสวิชาในระบบ EXAM) จำเป็นหรือไม่?**
+
+**ใช่ — จำเป็นมาก** `AG_CODE` คือรหัสที่ระบบ EXAM ใช้ระบุวิชาเมื่อรับผลสอบกลับมา ถ้าไม่มีหรือผิด ระบบ IIQE จะ match ผลสอบไม่ได้
+
+- `CODE` และ `NAME_TH` ใน `MT_T_SUBJECT_ITEM` เป็น internal IIQE → **generate เองได้** (running ต่อจาก 00037)
+- `AG_CODE` → **ต้องได้รับจาก Project Owner** เพราะระบบ EXAM กำหนด
+
+**คำถาม 2 — 61 และ 62 ควรแยก record หรือใช้ร่วมกัน?**
+
+**ต้องแยก** — เพราะ `MT_T_SUBJECT_ITEM.LICENSE_TYPE_ID` ผูกกับ `MT_T_REGIST_TYPE` แบบ 1-to-many และระบบ filter ด้วย `LICENSE_TYPE_ID + IS_LICENSE_TYPE` คู่กันเสมอ ดูตัวอย่างจากข้อมูลที่มีอยู่:
+
+| ตัวอย่าง | LICENSE_TYPE_ID | AG_CODE | หมายเหตุ |
+|---|:---:|:---:|---|
+| จรรยาบรรณนายหน้าชีวิต (ID=9) | 3 | `001` | แยก record |
+| จรรยาบรรณนายหน้าวินาศ (ID=13) | 4 | `001` | แยก record — AG_CODE ซ้ำได้ในคนละ LICENSE_TYPE |
+
+> ดังนั้น แม้วิชา 61 และ 62 จะมีชื่อเหมือนกัน ต้องสร้าง **2 record แยกกัน** ใน `MT_T_SUBJECT_ITEM` (LICENSE_TYPE_ID=1 สำหรับ 61 และ LICENSE_TYPE_ID=2 สำหรับ 62) และ **AG_CODE อาจเหมือนหรือต่างกันก็ได้** ขึ้นอยู่กับที่ระบบ EXAM กำหนด
+
+#### สิ่งที่ต้องเพิ่มในฐานข้อมูล
+
+| ตาราง | Action | รายละเอียด |
+|---|---|---|
+| `MT_T_SUBJECT_GROUP` | ตรวจสอบ | `ความรู้เกี่ยวกับการประกันภัยต่อ` (ID=3) มีอยู่แล้ว ✅ |
+| `MT_T_SUBJECT_ITEM` | **INSERT 2 records** | วิชาประกันภัยต่อสำหรับ 61 (LICENSE_TYPE_ID=1, IS_LICENSE_TYPE=2) และ 62 (LICENSE_TYPE_ID=2, IS_LICENSE_TYPE=2) แยกกัน |
+| `MT_T_EXAM_SCORE_SETTING` | **INSERT 2 records** | เกณฑ์คะแนนสำหรับ LICENSE_TYPE_ID=1 และ LICENSE_TYPE_ID=2 (IS_LICENSE_TYPE=2, IS_ACTIVE=1) |
+| `MT_T_EXAM_SCORE_SETTING_DT` | **INSERT 2 records** | PERCENT_PASS=60, MAX_SCORE=80 เชื่อมกับ SUBJECT_ITEM ของ 61 และ 62 ตามลำดับ |
+
+> 🔴 **Blocked:** ต้องได้รับ `AG_CODE` สำหรับวิชานี้จาก Project Owner ก่อน จึงจะ Insert `MT_T_SUBJECT_ITEM` ได้
+
+#### Code รองรับแล้ว — ไม่ต้องแก้
+
+`MT_T_EXAM_SCORE_SETTING` query ใช้ CASE เลือก join table ตาม IS_LICENSE_TYPE อยู่แล้ว:
+```sql
+CASE WHEN exam.is_license_type = 2 
+     THEN (r.code || ' ' || r.display_name_th)  -- MT_T_REGIST_TYPE
+     ELSE (l.code || ' ' || l.display_name_th)   -- MT_T_LICENSE_TYPE
+END as NAME_TH
+```
+
+`MT_T_SUBJECT_ITEM` query filter ด้วยทั้ง `LICENSE_TYPE_ID` AND `IS_LICENSE_TYPE` อยู่แล้ว
+
+#### สรุป Flow 2
+
+| | รายการ | สถานะ |
+|:---:|---|:---:|
+| ✅ | Code logic ใน Scoring Setting รองรับ IS_LICENSE_TYPE=2 แล้ว | ไม่ต้องแก้ code |
+| ✅ | Code logic ใน Subject Item รองรับ IS_LICENSE_TYPE=2 แล้ว | ไม่ต้องแก้ code |
+| 🔴 | ไม่มีข้อมูลเกณฑ์คะแนนสอบ (MT_T_EXAM_SCORE_SETTING) สำหรับ registration type | **ต้องเพิ่มข้อมูล** |
+| 🔴 | รายวิชาสอบ (MT_T_SUBJECT_ITEM) สำหรับ registration type ยังไม่ครบ | **ต้องเพิ่มข้อมูล** |
+| 🟡 | ต้องได้รับข้อมูลรายวิชาและเกณฑ์คะแนนจาก Project Owner / ฝ่ายวิชาการ | **ต้องถาม** |
+
+---
+
+### 6. สรุป Action Items (ทั้งหมด)
+
+```
+[Database Scripts — ทำได้ทันที]
+1. UPDATE MT_T_REGIST_TYPE — แก้ข้อมูลให้ถูกต้อง (CODE, NAME, IS_ACTIVE, OIC_CODE, INCOME_CODE)
+   OIC_CODE: 61=203, 62=204 / INCOME_CODE: 61=OIC002-00003, 62=OIC002-00004 ✅
+2. INSERT MT_T_EXAM_CENTER_LICENSE_TYPE — เพิ่ม EXAM_CENTER_ID=7 (สำนักงานใหญ่ รัชดา)
+   สำหรับ LICENSE_TYPE_ID=1 (61) IS_LICENSE_TYPE=2 และ LICENSE_TYPE_ID=2 (62) IS_LICENSE_TYPE=2
+4. INSERT MT_T_EXAM_SCORE_SETTING (IS_LICENSE_TYPE=2, START_DATE=01/01/2026, END_DATE=01/01/2032)
+   + MT_T_EXAM_SCORE_SETTING_DT (PERCENT_PASS=60, MAX_SCORE=80) — รอ SUBJECT_ITEM_ID จากข้อ 3
+
+[Database Scripts — ต้องรอข้อมูลจาก Project Owner]
+3. INSERT MT_T_SUBJECT_ITEM — รอ AG_CODE และชื่อวิชาอย่างเป็นทางการ (ข้อ 1, 2)
+
+[Code Changes — UI]
+5. ตรวจสอบ GetLicenseType() ใน PersonalExamRoundBL — UNION กับ MT_T_REGIST_TYPE แล้วหรือยัง
+6. แก้ Label บนหน้า PersonalExamRound_New.cshtml
+7. แก้ Label บนหน้า ExamCenter_Detail.cshtml
+
+[Code Changes — BL]
+8. ตรวจสอบ INSERT MT_T_P_EXAM_ROUND — set IS_LICENSE_TYPE=2 + REGIST_TYPE_ID ถูกต้อง
+9. ตรวจสอบ Bill Payment FEE_NAME logic — ดึงจาก MT_T_REGIST_TYPE เมื่อ IS_LICENSE_TYPE=2
+10. ตรวจสอบหน้า ExamSchedule filter — แสดง registration type ใน dropdown
+```
+
+---
+
+## ข้อมูลที่ต้องสอบถามเพิ่มเติมจาก Project Owner
+
+| # | หัวข้อ | รายละเอียด | ผลกระทบถ้าไม่ได้ |
+|:---:|---|---|---|
+| 1 | **AG_CODE ของวิชาสอบ** | รหัสวิชา "ความรู้เกี่ยวกับการประกันภัยต่อ" สำหรับประเภท 61 และ 62 ในระบบ EXAM คืออะไร? (ปัจจุบัน ID=37 ใช้ AG_CODE=`015` แต่ผูกกับ LICENSE_TYPE ที่ IS_ACTIVE=0) | ❌ Block การ INSERT `MT_T_SUBJECT_ITEM` — ระบบ EXAM จะ match ผลสอบไม่ได้ |
+| 2 | **ชื่อวิชา (NAME_TH) อย่างเป็นทางการ** | ชื่อเต็มอย่างเป็นทางการของวิชา "ความรู้เกี่ยวกับการประกันภัยต่อ" สำหรับ 61 และ 62 เหมือนกันหรือต่างกัน? | ❌ Block การ INSERT `MT_T_SUBJECT_ITEM` |
+| 3 | ~~**ศูนย์สอบที่รองรับการขึ้นทะเบียน**~~ | ✅ **ตอบแล้ว:** เฉพาะ **สำนักงาน คปภ. (สำนักงานใหญ่)** — `EXAM_CENTER_ID = 7`, CODE = `I0001` ปัจจุบันมี IS_LICENSE_TYPE=1 สำหรับ LICENSE_TYPE_ID 3, 4 อยู่แล้ว (ID=13, 14) ต้อง INSERT เพิ่มสำหรับ IS_LICENSE_TYPE=2 | — |
+| 4 | ~~**ข้อมูล OIC_CODE และ INCOME_CODE**~~ | ✅ **ตอบแล้ว:** 61 (ชีวิต) = OIC_CODE `203`, INCOME_CODE `OIC002-00003` / 62 (วินาศ) = OIC_CODE `204`, INCOME_CODE `OIC002-00004` | — |
+| 5 | ~~**ค่าธรรมเนียมสอบ**~~ | ✅ **ตอบแล้ว:** **200 บาท** เหมือนนายหน้าปกติ | — |
+| 6 | ~~**START_DATE / END_DATE ของเกณฑ์คะแนน**~~ | ✅ **ตอบแล้ว:** START_DATE = `01/01/2026`, END_DATE = `01/01/2032` | — |
+| 9 | ~~**FEE_NAME ในใบแจ้งชำระเงิน**~~ | ✅ **ตอบแล้ว:** ระบุไว้ใน Initial data ของ `MT_T_REGIST_TYPE` แล้ว: 61 = `ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันชีวิต การประกันต่อ`, 62 = `ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันวินาศภัย การประกันต่อ` | — |
+| 10 | **กระบวนการหลังสอบผ่าน** | หลัง Approve ผลสอบแล้ว กระบวนการถัดไปสำหรับประเภทขึ้นทะเบียนคืออะไร? มีการส่งข้อมูลหรือออกเอกสารเพิ่มเติมหรือไม่? | ⚠️ กระทบ scope งาน — อาจต้องพัฒนา flow เพิ่ม |
+| 11 | **การแสดงผลบน Dashboard** | คำขอสมัครสอบขึ้นทะเบียน (61/62) จะแสดงรวมใน widget "คำขอสมัครสอบรอบปกติ" หรือเพิ่ม widget / section ใหม่แยก? | ⚠️ กระทบ UI Dashboard และ scope งาน |
+
+## ข้อมูลที่ต้องสอบถามเพิ่มเติมจากทีม EXAM System
+
+| # | หัวข้อ | รายละเอียด | ผลกระทบถ้าไม่ได้ |
+|:---:|---|---|---|
+| 7 | **REGIST_TYPE_ID ที่ระบบ EXAM รับรู้** | ระบบ EXAM รู้จัก `REGIST_TYPE_ID` = 1 (61) และ = 2 (62) แล้วหรือยัง? หรือต้องแจ้งให้ทีม EXAM เพิ่มข้อมูลก่อน? | ❌ Block การส่งรอบสอบไประบบ EXAM — `IIQE_SEND_P_EXAM_ROUND` validate ว่า REGIST_TYPE_ID มีอยู่ในระบบ EXAM |
+| 8 | **รูปแบบ payload ที่ EXAM รับ** | field `REGIST_TYPE_ID` ใน payload ปัจจุบัน (SendExamRoundVM) ถูกต้องและระบบ EXAM พร้อมรับแล้วหรือยัง? | ❌ Block การส่งรอบสอบ |
+
+## Code Bugs ที่พบจากการวิเคราะห์ (ต้องแก้ไข)
+
+> พบ bug ที่จะทำให้ระบบทำงานผิดพลาดเมื่อสร้างรอบสอบประเภทขึ้นทะเบียน ไม่ต้องถาม Project Owner — แก้ได้เลย
+
+| # | ไฟล์ | Method | ปัญหา | ผลกระทบ |
+|:---:|---|---|---|---|
+| B1 | `IIQE_PersonalExamRoundRepo.cs` | `getLicenseCodeByLicenseTypeID()` | Query เฉพาะ `MT_T_LICENSE_TYPE` — เมื่อ IS_LICENSE_TYPE=2 ส่ง LICENSE_TYPE_ID=1 จะได้ CODE=`01` แทน `61` | ❌ รหัสรอบสอบ (CODE) ผิด เช่น ได้ `6910100001` แทน `6916100001` |
+| B2 | `IIQE_PersonalExamRoundRepo.cs` | `getRunningByLicenseTypeID()` | ใช้ `RUNNING_LICENSETYPE` เป็น key โดยไม่แยก IS_LICENSE_TYPE — REGIST_TYPE ID=1 ชนกับ LICENSE_TYPE ID=1 | ❌ Running number รอบขึ้นทะเบียนนับต่อจากรอบตัวแทนประกันชีวิต |
+| B3 | `IIQE_ApproveExamResultRepo.cs` | `getLicenseTypeForSearch()` | Query เฉพาะ `MT_T_LICENSE_TYPE` ไม่มี UNION กับ `MT_T_REGIST_TYPE` | ❌ Filter ในหน้าอนุมัติผลสอบไม่แสดง 61 และ 62 |
 
 ---
 
@@ -431,3 +760,131 @@
 1. วางแผนการ Implement ระบบ เพื่อให้รองรับการเปิดรอบสอบ (ใช้ Plan mode)
 2. ตรวจสอบผลกระทบ
 3. หากมี Script Database ที่จะต้องไป Execute ให้เตรียมให้ด้วย
+
+---
+
+## Database Scripts
+
+### Script 1: UPDATE MT_T_REGIST_TYPE (พร้อมรัน ✅)
+
+```sql
+-- แก้ข้อมูล MT_T_REGIST_TYPE ให้ถูกต้องครบถ้วน
+UPDATE MT_T_REGIST_TYPE
+SET
+    CODE             = '61',
+    NAME_TH          = 'นายหน้าประกันชีวิต การประกันต่อ',
+    NAME_EN          = 'Life Reinsurance Broker',
+    IS_ACTIVE        = 1,
+    DISPLAY_NAME_TH  = 'นายหน้าประกันชีวิต การประกันต่อ',
+    DISPLAY_NAME_EN  = 'Life Reinsurance Broker',
+    FIN_CODE         = '203',
+    OIC_CODE         = '203',
+    INCOME_CODE      = 'OIC002-00003',
+    FEE_NAME         = 'ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันชีวิต การประกันต่อ',
+    UPDATE_BY        = 1,
+    UPDATE_DATE      = SYSDATE
+WHERE ID = 1;
+
+UPDATE MT_T_REGIST_TYPE
+SET
+    CODE             = '62',
+    NAME_TH          = 'นายหน้าประกันวินาศภัย การประกันต่อ',
+    NAME_EN          = 'Non-Life Reinsurance Broker',
+    IS_ACTIVE        = 1,
+    DISPLAY_NAME_TH  = 'นายหน้าประกันวินาศภัย การประกันต่อ',
+    DISPLAY_NAME_EN  = 'Non-Life Reinsurance Broker',
+    FIN_CODE         = '204',
+    OIC_CODE         = '204',
+    INCOME_CODE      = 'OIC002-00004',
+    FEE_NAME         = 'ค่าธรรมเนียมสมัครสอบขึ้นทะเบียนนายหน้าประกันวินาศภัย การประกันต่อ',
+    UPDATE_BY        = 1,
+    UPDATE_DATE      = SYSDATE
+WHERE ID = 2;
+
+COMMIT;
+```
+
+---
+
+### Script 2: INSERT MT_T_EXAM_CENTER_LICENSE_TYPE (พร้อมรัน ✅)
+
+> เพิ่ม EXAM_CENTER_ID=7 (สำนักงาน คปภ. สำนักงานใหญ่ รัชดา) สำหรับประเภทขึ้นทะเบียน
+
+```sql
+-- ตรวจสอบ MAX(ID) ก่อน INSERT
+-- SELECT MAX(ID) FROM MT_T_EXAM_CENTER_LICENSE_TYPE;
+
+INSERT INTO MT_T_EXAM_CENTER_LICENSE_TYPE (ID, EXAM_CENTER_ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, CREATE_BY, CREATE_DATE)
+VALUES (SEQ_MT_T_EXAM_CENTER_LICENSE_TYPE.NEXTVAL, 7, 1, 2, 1, SYSDATE);  -- 61 นายหน้าชีวิต ต่อ
+
+INSERT INTO MT_T_EXAM_CENTER_LICENSE_TYPE (ID, EXAM_CENTER_ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, CREATE_BY, CREATE_DATE)
+VALUES (SEQ_MT_T_EXAM_CENTER_LICENSE_TYPE.NEXTVAL, 7, 2, 2, 1, SYSDATE);  -- 62 นายหน้าวินาศ ต่อ
+
+COMMIT;
+```
+
+> **หมายเหตุ:** ตรวจสอบชื่อ SEQUENCE ก่อนรัน — หากไม่มี SEQUENCE ให้ใช้ `(SELECT NVL(MAX(ID),0)+1 FROM MT_T_EXAM_CENTER_LICENSE_TYPE)` แทน
+
+---
+
+### Script 3: INSERT MT_T_SUBJECT_ITEM (รอ AG_CODE และชื่อวิชา ❌ Block)
+
+```sql
+-- TODO: รอข้อมูลจาก Project Owner
+-- AG_CODE สำหรับ 61 = ???
+-- AG_CODE สำหรับ 62 = ???
+-- NAME_TH อย่างเป็นทางการ = ???
+
+-- INSERT MT_T_SUBJECT_ITEM (LICENSE_TYPE=61)
+INSERT INTO MT_T_SUBJECT_ITEM (ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, SUBJECT_GROUP_ID, AG_CODE, NAME_TH, IS_ACTIVE, CREATE_BY, CREATE_DATE)
+VALUES (SEQ_MT_T_SUBJECT_ITEM.NEXTVAL, 1, 2, 3, '???_61', '???', 1, 1, SYSDATE);
+
+-- INSERT MT_T_SUBJECT_ITEM (LICENSE_TYPE=62)
+INSERT INTO MT_T_SUBJECT_ITEM (ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, SUBJECT_GROUP_ID, AG_CODE, NAME_TH, IS_ACTIVE, CREATE_BY, CREATE_DATE)
+VALUES (SEQ_MT_T_SUBJECT_ITEM.NEXTVAL, 2, 2, 3, '???_62', '???', 1, 1, SYSDATE);
+
+COMMIT;
+```
+
+---
+
+### Script 4: INSERT MT_T_EXAM_SCORE_SETTING + MT_T_EXAM_SCORE_SETTING_DT (รอ SUBJECT_ITEM_ID ❌ Block)
+
+```sql
+-- TODO: รอ ID ของ MT_T_SUBJECT_ITEM จาก Script 3
+
+-- === 61 นายหน้าประกันชีวิต การประกันต่อ ===
+-- วิชาเดียว: ความรู้เกี่ยวกับการประกันภัยต่อ (MAX_SCORE=80, PERCENT_PASS=60%)
+DECLARE
+    v_score_id  NUMBER;
+    v_item_id_61 NUMBER;
+BEGIN
+    SELECT ID INTO v_item_id_61 FROM MT_T_SUBJECT_ITEM WHERE IS_LICENSE_TYPE=2 AND LICENSE_TYPE_ID=1 AND ROWNUM=1;
+
+    INSERT INTO MT_T_EXAM_SCORE_SETTING (ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, START_DATE, END_DATE, CREATE_BY, CREATE_DATE)
+    VALUES (SEQ_MT_T_EXAM_SCORE_SETTING.NEXTVAL, 1, 2, TO_DATE('01/01/2026','DD/MM/YYYY'), TO_DATE('01/01/2032','DD/MM/YYYY'), 1, SYSDATE)
+    RETURNING ID INTO v_score_id;
+
+    INSERT INTO MT_T_EXAM_SCORE_SETTING_DT (ID, EXAM_SCORE_SETTING_ID, SUBJECT_ITEM_ID, MAX_SCORE, PERCENT_PASS, CREATE_BY, CREATE_DATE)
+    VALUES (SEQ_MT_T_EXAM_SCORE_SETTING_DT.NEXTVAL, v_score_id, v_item_id_61, 80, 60, 1, SYSDATE);
+END;
+/
+
+-- === 62 นายหน้าประกันวินาศภัย การประกันต่อ ===
+DECLARE
+    v_score_id  NUMBER;
+    v_item_id_62 NUMBER;
+BEGIN
+    SELECT ID INTO v_item_id_62 FROM MT_T_SUBJECT_ITEM WHERE IS_LICENSE_TYPE=2 AND LICENSE_TYPE_ID=2 AND ROWNUM=1;
+
+    INSERT INTO MT_T_EXAM_SCORE_SETTING (ID, LICENSE_TYPE_ID, IS_LICENSE_TYPE, START_DATE, END_DATE, CREATE_BY, CREATE_DATE)
+    VALUES (SEQ_MT_T_EXAM_SCORE_SETTING.NEXTVAL, 2, 2, TO_DATE('01/01/2026','DD/MM/YYYY'), TO_DATE('01/01/2032','DD/MM/YYYY'), 1, SYSDATE)
+    RETURNING ID INTO v_score_id;
+
+    INSERT INTO MT_T_EXAM_SCORE_SETTING_DT (ID, EXAM_SCORE_SETTING_ID, SUBJECT_ITEM_ID, MAX_SCORE, PERCENT_PASS, CREATE_BY, CREATE_DATE)
+    VALUES (SEQ_MT_T_EXAM_SCORE_SETTING_DT.NEXTVAL, v_score_id, v_item_id_62, 80, 60, 1, SYSDATE);
+END;
+/
+
+COMMIT;
+```
