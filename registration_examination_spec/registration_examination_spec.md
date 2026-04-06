@@ -121,7 +121,7 @@
 
      > **Note:** รอบสอบ คือ Table `MT_T_P_EXAM_ROUND` และ Table `MT_T_P_EXAM_ROUND_DT`
 
-3. ระบบแสดงรอบสอบที่สร้าง
+4. ระบบแสดงรอบสอบที่สร้าง
 
    <img src="screenshort/8_2.png" alt="หน้ารายการรอบสอบ แสดงรูปรอบสอบที่สร้าง" style="border: 1px solid black; width: 100%;">
 
@@ -314,7 +314,7 @@
 ---
 
 ## Information
-#### Tables MT_T_LICENSE_TYPE : ประเภทใบอนุญาต
+### Tables MT_T_LICENSE_TYPE : ประเภทใบอนุญาต
 
 | ลำดับ | Column Name | Data Type | Allow Nulls | Field Description |
 |---|---|---|:---:|---|
@@ -390,7 +390,7 @@
    - ประเภทใบอนุญาต จะใช้ตาราง `MT_T_LICENSE_TYPE`
    - ประเภทการสอบขึ้นทะเบียน ให้เพิ่มตาราง `MT_T_REGIST_TYPE` Column ให้คล้ายกับตาราง `MT_T_LICENSE_TYPE`
 
-#### Tables MT_T_REGIST_TYPE : ประเภทการขึ้นทะเบียน
+### Tables MT_T_REGIST_TYPE : ประเภทการขึ้นทะเบียน
 
 | ลำดับ | Column Name | Data Type | Allow Nulls | Field Description |
 |---|---|---|:---:|---|
@@ -410,7 +410,7 @@
 | 14 | OIC_CODE | VARCHAR2(20) | Y | รหัสสำหรับระบบการเงิน |
 | 15 | INCOME_CODE | VARCHAR2(20) | Y | รหัสสำหรับระบบการเงิน |
 
-##### ข้อมูล Initial  MT_T_REGIST_TYPE
+#### ข้อมูล Initial MT_T_REGIST_TYPE
 
 | ID | CODE | NAME_TH | NAME_EN | ISACTIVE | CREATE_BY | CREATE_DATE | UPDATE_BY | UPDATE_DATE | FIN_CODE | FEE_NAME | DISPLAY_NAME_TH | DISPLAY_NAME_EN | OIC_CODE | INCOME_CODE |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
