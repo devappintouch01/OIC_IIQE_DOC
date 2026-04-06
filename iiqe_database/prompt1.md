@@ -26,7 +26,7 @@ Schema files:
 - Brain_IIQE\iiqe_database\oic_iiqe_database_ai_schema.csv
 
 Problem:
-จากหน้าจอ /ReportExaminationRate/Search
+จากหน้าจอ /ReportExaminationRate/Search                      
 
 จำนวนผู้สมัครสอบ "นายหน้าประกันชีวิต" ปี 2568
 ตัวเลขจาก 2 ระบบไม่ตรงกัน
@@ -158,4 +158,29 @@ Task:
 
 และรอบสอบอื่นๆ รวมแล้วได้ 339 คนครับ
 ซึ่งตรวจสอบของ นายหน้าประกันวินาศภัย ปี 2568 ก็เป็นสาเหตุเดียวกันครับ
+```
+
+### Prompt 1.3
+```
+Context:
+D:\Works\OICIIQE\Brain_IIQE\iiqe_database\IIQE_report_isssue1.png
+
+Problem:
+จากหน้าจอ /ReportExaminationGroup/Search
+เปรียบเทียบกับ หน้าจอ /ReportExaminationRate/Search
+เงื่อนไขการค้นหาเหมือนกัน แต่ยอดผู้สมัครสอบไม่ตรงกัน
+ที่ถูกต้องคือ 7,612 ตามหน้าจอ /ReportExaminationRate/Search
+
+ConnectionString:
+"DefaultConnection": "DATA SOURCE=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.138)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ORCLPDB)));User Id=oiciiqe;Password=oiciiqe;"
+
+Task:
+1. วิเคราะห์เงื่อนไขการค้นหาของทั้งสองหน้าจอ
+2. แนะนำ SQL ที่ใช้ตรวจสอบ record ที่หายไป
+3. แนะนำ SQL ที่ใช้เปรียบเทียบข้อมูลระหว่างสองระบบ
+4. แนะนำจุดที่ควรตรวจสอบ เช่น
+   - duplicate join
+   - cancelled round
+   - transfer round
+   - absent vs attend
 ```
